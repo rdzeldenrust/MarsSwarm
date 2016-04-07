@@ -46,7 +46,7 @@ robotColor = [(8,133,161),(187,86,149),(231,199,31),(175,54,60),(70,148,73),(56,
 #set target and loading area
 
 gridSize = 10
-displayGridSize = 2
+displayGridSize = 5
 field = Field(FIELDWIDTH,FIELDHEIGHT,gridSize)
 field.setTarget(Target(Point(220,80),5))
 field.setLoadingArea(LoadingArea(Point(200,399),5))
