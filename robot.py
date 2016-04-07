@@ -352,7 +352,7 @@ class Robot:
         WHITE = (255, 255, 255)
         GRAY= (100,100,100)
         rotation = 0
-        DISPLAY_GRIDSIZE = 2
+        DISPLAY_GRIDSIZE = 5
         surf =  pygame.Surface((21, 31))
         surf.fill((255, 255, 255))
         if((self.currentOrientation.X==self.direction.X)&(self.currentOrientation.Y==self.direction.Y)):
@@ -380,14 +380,14 @@ class Robot:
         for h in range(self.field.gridWidth):
             for v in range(self.field.gridHeight):
                 if((h,v) in self.weightedGrid.walls):
-                    pygame.draw.rect(windowSurface,WHITE,Rect(self.field.width+h*DISPLAY_GRIDSIZE+self.ID%4*self.field.gridWidth*DISPLAY_GRIDSIZE,v*DISPLAY_GRIDSIZE+self.ID//4*self.field.gridHeight*DISPLAY_GRIDSIZE,DISPLAY_GRIDSIZE,DISPLAY_GRIDSIZE))
+                    pygame.draw.rect(windowSurface,WHITE,Rect(self.field.width+h*DISPLAY_GRIDSIZE+self.ID%2*self.field.gridWidth*DISPLAY_GRIDSIZE,v*DISPLAY_GRIDSIZE+self.ID//2*self.field.gridHeight*DISPLAY_GRIDSIZE,DISPLAY_GRIDSIZE,DISPLAY_GRIDSIZE))
                 elif((h,v)==self.positionInGrid):
-                    pygame.draw.rect(windowSurface,BLACK,Rect(self.field.width+h*DISPLAY_GRIDSIZE+self.ID%4*self.field.gridWidth*DISPLAY_GRIDSIZE,v*DISPLAY_GRIDSIZE+self.ID//4*self.field.gridHeight*DISPLAY_GRIDSIZE,DISPLAY_GRIDSIZE,DISPLAY_GRIDSIZE))
+                    pygame.draw.rect(windowSurface,BLACK,Rect(self.field.width+h*DISPLAY_GRIDSIZE+self.ID%2*self.field.gridWidth*DISPLAY_GRIDSIZE,v*DISPLAY_GRIDSIZE+self.ID//2*self.field.gridHeight*DISPLAY_GRIDSIZE,DISPLAY_GRIDSIZE,DISPLAY_GRIDSIZE))
                 elif((h,v) in self.exploredGrid):
                     #print(str(self.ID))
-                    pygame.draw.rect(windowSurface,self.color,Rect(self.field.width+h*DISPLAY_GRIDSIZE+self.ID%4*self.field.gridWidth*DISPLAY_GRIDSIZE,v*DISPLAY_GRIDSIZE+self.ID//4*self.field.gridHeight*DISPLAY_GRIDSIZE,DISPLAY_GRIDSIZE,DISPLAY_GRIDSIZE))
+                    pygame.draw.rect(windowSurface,self.color,Rect(self.field.width+h*DISPLAY_GRIDSIZE+self.ID%2*self.field.gridWidth*DISPLAY_GRIDSIZE,v*DISPLAY_GRIDSIZE+self.ID//2*self.field.gridHeight*DISPLAY_GRIDSIZE,DISPLAY_GRIDSIZE,DISPLAY_GRIDSIZE))
                 else:
-                    pygame.draw.rect(windowSurface,GRAY,Rect(self.field.width+h*DISPLAY_GRIDSIZE+self.ID%4*self.field.gridWidth*DISPLAY_GRIDSIZE,v*DISPLAY_GRIDSIZE+self.ID//4*self.field.gridHeight*DISPLAY_GRIDSIZE,DISPLAY_GRIDSIZE,DISPLAY_GRIDSIZE))
+                    pygame.draw.rect(windowSurface,GRAY,Rect(self.field.width+h*DISPLAY_GRIDSIZE+self.ID%2*self.field.gridWidth*DISPLAY_GRIDSIZE,v*DISPLAY_GRIDSIZE+self.ID//2*self.field.gridHeight*DISPLAY_GRIDSIZE,DISPLAY_GRIDSIZE,DISPLAY_GRIDSIZE))
                 
                 
      #   for v in range(FIELDHEIGHT/gridSize):
